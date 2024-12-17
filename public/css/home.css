@@ -1,6 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=Beiruti:wght@200..900&family=Cairo:wght@200..1000&family=Kablammo&family=Noto+Kufi+Arabic:wght@100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
-
-*{
+@import url("https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=Beiruti:wght@200..900&family=Cairo:wght@200..1000&family=Kablammo&family=Noto+Kufi+Arabic:wght@100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
@@ -10,23 +9,29 @@
     font-style: normal;
 }
 
-.home{
+.home {
     min-height: max-content;
     background-color: #291623;
 }
-.home_container{
+
+.home_container {
     padding: 0 15%;
 }
+
+
 /* calender */
+
 .home_calender_box {
     display: flex;
     justify-content: space-between;
     padding: 20px 0 0 0;
 }
+
 .home_calender_box h3 {
     color: #e0e0e0;
     font-weight: 300;
 }
+
 .home_calender {
     display: flex;
     justify-content: space-between;
@@ -34,43 +39,54 @@
     padding: 10px 20px;
     background-color: #ff72d22a;
 }
+
 .home_calender i {
     margin: 0 0 0 10px;
     color: #e0e0e0;
     font-size: 1rem;
 }
+
 .home_calender_box h2 {
     color: white;
     border-bottom: 2px solid #8f4578;
 }
-.home_calender_box h2 span{
-    color: #ffc444;
+
+.home_calender_box h2 span {
+    color: #f89456;
 }
+
+
 /* analytics */
 
-.analytics{
+.analytics {
     padding: 0 15%;
     height: max-content;
     background-color: #291623;
-    min-height: 93vh;
+    min-height: max-content;
 }
+
 .analytics_container {
     padding: 50px 0 0 0;
 }
+
 .analytics_title {
     display: grid;
 }
-.analytics_title h2{
+
+.analytics_title h2 {
     color: white;
 }
+
 .analytics_boxes {
     margin: 20px 0 0 0;
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
 }
+
 .analytics_bg {
     padding: 10px;
+    border-radius: 5px;
     background-color: #5a2c4b;
     min-width: 150px;
     min-height: 100px;
@@ -78,34 +94,113 @@
     align-items: center;
     justify-content: center;
     text-align: center;
+    transition: all ease 0.6s;
 }
+
+.analytics_bg:hover {
+    transition: all ease 0.6s;
+    background-color: #461836;
+}
+
 .analytics_description h3 {
     color: white;
 }
+
 .analytics_description p {
-    color: #c4c4c4;
+    color: #e0e0e0;
 }
-.analytics_description h3 a i {
-    color: #ffc444;
+
+.analytics_description p span {
+    color: #ffc8a5;
 }
-@media screen and (max-width:1024px ){
+
+.analytics_description h3 i {
+    color: #f89456;
+}
+
+@media screen and (max-width: 1024px) {
     .home_calender {
         padding: 5px 5px;
     }
-    .home_calender_box h3,.home_calender i{
-        font-size: .8rem;
+    .home_calender_box h3,
+    .home_calender i {
+        font-size: 0.8rem;
     }
-    .analytics_boxes{
+    .analytics_boxes {
         display: flex;
         justify-content: center;
         align-items: center;
     }
-    .analytics{
+    .analytics {
         padding: 0 9%;
-
     }
-    .home_calender_box h2{
+    .home_calender_box h2 {
         font-size: 1.3rem;
     }
+}
 
+
+/* subcategories */
+
+.subcategories {
+    padding: 5% 0 0 0;
+    background-color: #291623;
+}
+
+.subcategories_container {
+    padding: 0 15%;
+    min-height: 55vh;
+}
+
+.subcategories_title h2 {
+    color: white;
+}
+
+.subcategories_bg {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.subcategories_description {
+    background-color: #f89456;
+    width: 145px;
+    height: 75px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ffc59e;
+    transition: .6s ease all;
+}
+
+.subcategories_description:hover {
+    transition: .6s ease all;
+    background-color: #f89456a9;
+}
+
+.subcategories_description h2 {
+    color: #ffffff;
+}
+
+.subcategories_description h3 {
+    color: #3b2b35;
+    font-weight: 300;
+    font-size: 1rem;
+}
+
+.subcategories_bg {
+    margin: 20px 0 0 0;
+    padding: 15px;
+    border-radius: 10px;
+    background-color: #a35c8d73;
+}
+
+hr {
+    border: 1px solid #9191917e;
+}
+
+@media screen and (max-width:1024px) {
+    .subcategories_bg {
+        justify-content: center;
+        align-items: center;
+    }
 }

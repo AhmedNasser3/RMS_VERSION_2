@@ -16,7 +16,6 @@
         </div>
     </div>
 </div>
-
 {{-- boxes --}}
 <div class="analytics">
     <div class="analytics_container">
@@ -26,45 +25,120 @@
                     <h2>Analytics</h2>
                 </div>
                 <div class="analytics_boxes">
-                    <div class="analytics_bg">
-                        <div class="analytics_description">
-                            <h3>Cash</h3>
-                            <p>EGP : 3000</p>
+                    <a href="#">
+                        <div class="analytics_bg">
+                            <div class="analytics_description">
+                                <h3>Cash</h3>
+                                <p>EGP : <span> 3000</span></p>
+                            </div>
+                        </a>
                         </div>
-                    </div>
                     <div class="analytics_bg">
+                        <a href="#">
                         <div class="analytics_description">
                             <h3>Bank</h3>
-                            <p>USD : 500</p>
+                            <p>USD : <span> 500</span></p>
                         </div>
+                    </a>
                     </div>
-                    <div class="analytics_bg">
+
+                                        <div class="analytics_bg">
+                                            <a href="#">
                         <div class="analytics_description">
                             <h3>Cash</h3>
-                            <p>MRO : 4250</p>
+                            <p>MRO : <span> 4250</span></p>
                         </div>
+                    </a>
                     </div>
-                    <div class="analytics_bg">
+
+                                        <div class="analytics_bg">
+                                            <a href="#">
                         <div class="analytics_description">
                             <h3>Cash</h3>
-                            <p>EURO : 700</p>
+                            <p>EURO : <span> 700</span></p>
                         </div>
+                    </a>
                     </div>
-                    <div class="analytics_bg">
+
+                                        <div class="analytics_bg">
+                                            <a href="#">
                         <div class="analytics_description">
                             <h3>Cash</h3>
-                            <p>L.E : 10000</p>
+                            <p>L.E : <span> 10000</span></p>
                         </div>
+                    </a>
                     </div>
-                    <div class="analytics_bg">
+                                            <a href="#">
+                    <div class="analytics_bg" >
                         <div class="analytics_description">
-                            <h3 >
-                                <a href="#">
-                                    <i class="fa-solid fa-plus"></i></h3>
-                                </a>
-                            <p>ADD <br> ACCOUNTS</p>
+                            <h3 ><i class="fa-solid fa-plus"></i></h3>
+                                    <p style="color: rgb(255, 226, 203)">ADD <br> ACCOUNTS</p>
+                                </div>
+                            </div>
+                        </a>
                         </div>
                     </div>
+        </div>
+    </div>
+    <hr style="margin: 5% 0 0 0">
+</div>
+{{-- subcategories --}}
+<div class="subcategories">
+    <div class="subcategories_container">
+        <div class="subcategories_content">
+            <div class="subcategories_data">
+                <div class="subcategories_title">
+                    <h2>Categories</h2>
+                </div>
+                <div class="subcategories_bg">
+                    <div class="subcategories_description">
+                            <a href="#">
+                            <h2>Payments</h2>
+                            <h3>Bank Payments</h3>
+                        </a>
+                    </div>
+                    <div class="subcategories_description">
+                            <a href="#">
+                            <h2>Payments</h2>
+                            <h3>Bank Payments</h3>
+                        </a>
+                    </div>
+                    <div class="subcategories_description">
+                            <a href="#">
+                            <h2>Payments</h2>
+                            <h3>Bank Payments</h3>
+                        </a>
+                    </div>
+                    <div class="subcategories_description">
+                            <a href="#">
+                            <h2>Payments</h2>
+                            <h3>Bank Payments</h3>
+                        </a>
+                    </div>
+                    <div class="subcategories_description">
+                            <a href="#">
+                            <h2>Payments</h2>
+                            <h3>Bank Payments</h3>
+                        </a>
+                    </div>
+                    <div class="subcategories_description">
+                            <a href="#">
+                            <h2>Payments</h2>
+                            <h3>Bank Payments</h3>
+                        </a>
+                    </div>
+                    <div class="subcategories_description">
+                            <a href="#">
+                            <h2>Payments</h2>
+                            <h3>Bank Payments</h3>
+                        </a>
+                    </div>
+                    <div style="text-align: center" class="subcategories_description">
+                            <a href="#">
+                            <h2 style="color: #3d3d3d"><i class="fa-solid fa-plus"></i></h2>
+                            <h3 style="color: white;font-size:1.2rem">Create</h3>
+                        </a>
+                        </div>
                 </div>
             </div>
         </div>

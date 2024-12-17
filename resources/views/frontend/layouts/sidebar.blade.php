@@ -16,7 +16,7 @@
                         <img src="https://raw.githubusercontent.com/programmercloud/analytic-dashboard/main/img/avatar.png" alt="">
                     </div>
                     <div class="sidebar_titles">
-                        <h2>Ahmed Nasser</h2>
+                        <h2 style="color: #f89456">{{ auth()->check() ? auth()->user()->name : 'User' }}</h2>
                         <p>Web Developer</p>
                     </div>
                 </div>
