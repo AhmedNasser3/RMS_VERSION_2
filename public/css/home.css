@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=Beiruti:wght@200..900&family=Cairo:wght@200..1000&family=Kablammo&family=Noto+Kufi+Arabic:wght@100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: "Nunito", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
+.home{
+    min-height: max-content;
+    background-color: #291623;
+}
+.home_container{
+    padding: 0 15%;
+}
+/* calender */
+.home_calender_box {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 0 0 0;
+}
+.home_calender_box h3 {
+    color: #e0e0e0;
+    font-weight: 300;
+}
+.home_calender {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #ff72d22a;
+}
+.home_calender i {
+    margin: 0 0 0 10px;
+    color: #e0e0e0;
+    font-size: 1rem;
+}
+.home_calender_box h2 {
+    color: white;
+    border-bottom: 2px solid #8f4578;
+}
+.home_calender_box h2 span{
+    color: #ffc444;
+}
+/* analytics */
+
+.analytics{
+    padding: 0 15%;
+    height: max-content;
+    background-color: #291623;
+    min-height: 93vh;
+}
+.analytics_container {
+    padding: 50px 0 0 0;
+}
+.analytics_title {
+    display: grid;
+}
+.analytics_title h2{
+    color: white;
+}
+.analytics_boxes {
+    margin: 20px 0 0 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+.analytics_bg {
+    padding: 10px;
+    background-color: #5a2c4b;
+    min-width: 150px;
+    min-height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.analytics_description h3 {
+    color: white;
+}
+.analytics_description p {
+    color: #c4c4c4;
+}
+.analytics_description h3 a i {
+    color: #ffc444;
+}
+@media screen and (max-width:1024px ){
+    .home_calender {
+        padding: 5px 5px;
+    }
+    .home_calender_box h3,.home_calender i{
+        font-size: .8rem;
+    }
+    .analytics_boxes{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .analytics{
+        padding: 0 9%;
+
+    }
+    .home_calender_box h2{
+        font-size: 1.3rem;
+    }
+
+}
