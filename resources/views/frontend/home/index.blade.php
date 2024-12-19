@@ -25,50 +25,28 @@
                     <h2>Analytics</h2>
                 </div>
                 <div class="analytics_boxes">
-                    <a href="#">
-                        <div class="analytics_bg">
+                    <div class="analytics_bg">
+                            <a href="#">
                             <div class="analytics_description">
                                 <h3>Cash</h3>
                                 <p>EGP : <span> 3000</span></p>
                             </div>
                         </a>
                         </div>
-                    <div class="analytics_bg">
-                        <a href="#">
-                        <div class="analytics_description">
-                            <h3>Bank</h3>
-                            <p>USD : <span> 500</span></p>
-                        </div>
-                    </a>
-                    </div>
 
-                                        <div class="analytics_bg">
-                                            <a href="#">
-                        <div class="analytics_description">
-                            <h3>Cash</h3>
-                            <p>MRO : <span> 4250</span></p>
+                        @foreach ($currencies as $currency)
+                        <div class="analytics_bg">
+                            <a href="#">
+                                <div class="analytics_description">
+                                    <h3>{{ $currency->name }}</h3>
+                                    <p>{{ $currency->currency }}: <span> {{$currency->amount}}</span></p>
+                                </div>
+                            </a>
                         </div>
-                    </a>
-                    </div>
+                        @endforeach
 
-                                        <div class="analytics_bg">
-                                            <a href="#">
-                        <div class="analytics_description">
-                            <h3>Cash</h3>
-                            <p>EURO : <span> 700</span></p>
-                        </div>
-                    </a>
-                    </div>
 
-                                        <div class="analytics_bg">
-                                            <a href="#">
-                        <div class="analytics_description">
-                            <h3>Cash</h3>
-                            <p>L.E : <span> 10000</span></p>
-                        </div>
-                    </a>
-                    </div>
-                                            <a href="#">
+                    <a href="{{ route('currency.create') }}">
                     <div class="analytics_bg" >
                         <div class="analytics_description">
                             <h3 ><i class="fa-solid fa-plus"></i></h3>
@@ -91,50 +69,16 @@
                     <h2>Categories</h2>
                 </div>
                 <div class="subcategories_bg">
+                    @foreach ($categories as $category)
                     <div class="subcategories_description">
-                            <a href="#">
-                            <h2>Payments</h2>
-                            <h3>Bank Payments</h3>
+                        <a href="#">
+                            <h3 style="color: white;font-size:1.2rem;">{{ $category->title }}</h3>
+                            <h3 style="font-size:.8rem;">{{ $category->description }}</h3>
                         </a>
                     </div>
-                    <div class="subcategories_description">
-                            <a href="#">
-                            <h2>Payments</h2>
-                            <h3>Bank Payments</h3>
-                        </a>
-                    </div>
-                    <div class="subcategories_description">
-                            <a href="#">
-                            <h2>Payments</h2>
-                            <h3>Bank Payments</h3>
-                        </a>
-                    </div>
-                    <div class="subcategories_description">
-                            <a href="#">
-                            <h2>Payments</h2>
-                            <h3>Bank Payments</h3>
-                        </a>
-                    </div>
-                    <div class="subcategories_description">
-                            <a href="#">
-                            <h2>Payments</h2>
-                            <h3>Bank Payments</h3>
-                        </a>
-                    </div>
-                    <div class="subcategories_description">
-                            <a href="#">
-                            <h2>Payments</h2>
-                            <h3>Bank Payments</h3>
-                        </a>
-                    </div>
-                    <div class="subcategories_description">
-                            <a href="#">
-                            <h2>Payments</h2>
-                            <h3>Bank Payments</h3>
-                        </a>
-                    </div>
+                    @endforeach
                     <div style="text-align: center" class="subcategories_description">
-                            <a href="#">
+                            <a href="{{ route('category.create') }}">
                             <h2 style="color: #3d3d3d"><i class="fa-solid fa-plus"></i></h2>
                             <h3 style="color: white;font-size:1.2rem">Create</h3>
                         </a>

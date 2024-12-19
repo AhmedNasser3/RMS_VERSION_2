@@ -129,6 +129,7 @@
     .analytics_boxes {
         display: flex;
         justify-content: center;
+        gap: .5rem;
         align-items: center;
     }
     .analytics {
@@ -202,5 +203,11 @@ hr {
     .subcategories_bg {
         justify-content: center;
         align-items: center;
+        display: flex;
+        flex-wrap: wrap;
+        gap: .5rem;
+    }
+    .subcategories_container {
+        padding: 0 7.9%;
     }
 }
