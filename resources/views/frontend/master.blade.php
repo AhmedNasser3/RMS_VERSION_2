@@ -14,6 +14,12 @@
 <body>
     @include('frontend.layouts.sidebar')
     <div >
+        @if(session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+@endif
+
         @yield('content')
     </div>
     <script src="{{ asset('js/sidebar.js') }}"></script>

@@ -18,7 +18,6 @@
     padding: 0 15%;
 }
 
-
 /* calender */
 
 .home_calender_box {
@@ -54,7 +53,6 @@
 .home_calender_box h2 span {
     color: #f89456;
 }
-
 
 /* analytics */
 
@@ -129,7 +127,7 @@
     .analytics_boxes {
         display: flex;
         justify-content: center;
-        gap: .5rem;
+        gap: 0.5rem;
         align-items: center;
     }
     .analytics {
@@ -139,7 +137,6 @@
         font-size: 1.3rem;
     }
 }
-
 
 /* subcategories */
 
@@ -170,11 +167,11 @@
     padding: 10px;
     border-radius: 5px;
     border: 1px solid #ffc59e;
-    transition: .6s ease all;
+    transition: 0.6s ease all;
 }
 
 .subcategories_description:hover {
-    transition: .6s ease all;
+    transition: 0.6s ease all;
     background-color: #f89456a9;
 }
 
@@ -199,15 +196,16 @@ hr {
     border: 1px solid #9191917e;
 }
 
-@media screen and (max-width:1024px) {
+@media screen and (max-width: 1024px) {
     .subcategories_bg {
         justify-content: center;
         align-items: center;
         display: flex;
         flex-wrap: wrap;
-        gap: .5rem;
+        gap: 0.5rem;
     }
     .subcategories_container {
         padding: 0 7.9%;
     }
 }
+/* debts */

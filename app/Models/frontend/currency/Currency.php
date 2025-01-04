@@ -2,9 +2,10 @@
 
 namespace App\Models\frontend\currency;
 
-use App\Models\frontend\category\Category;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\frontend\category\Category;
+use App\Models\frontend\transaction\Transaction;
 
 class Currency extends Model
 {
@@ -14,6 +15,9 @@ class Currency extends Model
         'name',
         'currency',
         'amount',
+        'MRU',
+        'recipient_amount',
+        'recipient_currency',
     ];
     public function user(){
         return $this->belongsTo(User::class);
@@ -21,4 +25,9 @@ class Currency extends Model
     public function category(){
         return $this->belongsTo(Category::class);
     }
+    public function transactions()
+{
+    return $this->hasMany(Transaction::class);
+}
+
 }
