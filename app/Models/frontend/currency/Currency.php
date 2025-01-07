@@ -18,6 +18,8 @@ class Currency extends Model
         'MRU',
         'recipient_amount',
         'recipient_currency',
+        'bank_recipient_amount',
+        'bank_amount',
     ];
     public function user(){
         return $this->belongsTo(User::class);

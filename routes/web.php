@@ -5,6 +5,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\frontend\debt\DebtController;
 use App\Http\Controllers\frontend\home\HomeController;
 use App\Http\Controllers\frontend\user\UserController;
+use App\Http\Controllers\frontend\trust\TrustController;
 use App\Http\Controllers\frontend\category\CategoryController;
 use App\Http\Controllers\frontend\currency\CurrencyController;
 Route::get('/dashboard', function () {
@@ -51,7 +52,11 @@ Route::controller(DebtController::class)->prefix('debt')->group(function () {
     Route::put('internal/{id}/update', 'InternalUpdate')->name('internal.debt.update'); // تحديث الديون الداخلية
     Route::delete('internal/{id}/delete', 'InternalDelete')->name('internal.debt.delete'); // حذف الديون الداخلية
 });
-
+Route::controller(TrustController::class)->prefix('trusts')->group(function () {
+    Route::get('/show', 'index')->name('trusts.index');
+    Route::get('/create',  'create')->name('trusts.create');
+    Route::post('/store',  'store')->name('trusts.store');
+});
 Route::resource('coins', CoinController::class);
 
 Route::get('/', [HomeController::class, 'index'])->name('home.page');

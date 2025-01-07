@@ -5,7 +5,7 @@
         <div class="home_content">
             <div class="home_data">
                 <div class="home_header">
-                    <div class="home_calender_box">
+                    <div class="home_calender_box" style="display: flex;flex-wrap:wrap;gap:1rem">
                         <h2>Good Morning <span>{{ auth()->check() ? auth()->user()->name : 'User' }}</span>👋</h2>
                         <a href="{{ route('coins.index') }}">
                             <div class="home_calender">
@@ -25,6 +25,16 @@
                         <a href="{{ route('internal.debt') }}">
                             <div class="home_calender">
                                 <h3>ديون داخلية</h3>
+                            </div>
+                        </a>
+                        <a href="{{ route('trusts.index') }}">
+                            <div class="home_calender">
+                                <h3>الامانات(استلام شخصي)</h3>
+                            </div>
+                        </a>
+                        <a href="{{ route('trusts.index') }}">
+                            <div class="home_calender">
+                                <h3>الامانات(امانة)</h3>
                             </div>
                         </a>
                     </div>

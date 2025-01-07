@@ -55,53 +55,42 @@
             <table class="transaction-table">
                 <thead>
                     <tr>
-                        <th>#</th>
-                        <th>From Currency</th>
-                        <th>To Currency</th>
-                        <th>Amount From</th>
-                        <th>Amount To</th>
-                        <th>Conversion Rate</th>
-                        <th>Date</th>
-                        <th>Current Rate</th>
-                        <th>Profit Difference</th> <!-- خانة فرق المكسب -->
-                        <th>Profit/Loss (%)</th> <!-- خانة المكسب أو الخسارة بالنسبة المئوية -->
+                        <th>العملة التي تم شرائها </th>
+                        <th>المبلغ من (العملة التي تم شرائها )</th>
+                        <th>العملة الخاصة بك انت</th>
+                        <th>المبلغ الذي دفعته انت</th>
+                        <th>العملة التي استلمتها انت</th>
+                        <th>المبلغ الذي استلمته انت</th>
+                        <th>سعر الصرف الذي استلمته انت</th>
+                        <th>نسبة الربح / الخسارة</th>
+                        <th>الربح / الخسارة بالارقام</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($transactions as $transaction)
                         <tr>
-                            <td>{{ $loop->iteration }}</td>
-                            <td>{{ $transaction->from_currency }}</td>
-                            <td>{{ $transaction->to_currency }}</td>
-                            <td>{{ $transaction->amount_from }}</td>
-                            <td>{{ $transaction->amount_to }}</td>
-                            <td>{{ $transaction->conversion_rate }}</td>
-                            <td>{{ $transaction->transaction_date }}</td>
-                            <td>
-                                <span id="rate_{{ $transaction->to_currency }}">{{ $currencies[$transaction->to_currency] ?? 'N/A' }}</span>
-                            </td>
-                            <td> <!-- فرق المكسب -->
-                                @php
-                                    $profitDifference = $transaction->currency->recipient_amount - $transaction->currency->recipient_currency;
-                                    $color = $profitDifference < 0 ? 'red' : 'green';
-                                @endphp
-                                <span class="profit-difference" style="color: {{ $color }};">
-                                    {{ number_format($profitDifference, 2) }} <!-- الناتج بش -->
-                                </span>
-                            </td>
-                            <td> <!-- المكسب أو الخسارة بالنسبة المئوية -->
-                                @php
-                                    $profitPercentage = $transaction->currency->recipient_currency > 0
-                                        ? ($profitDifference / $transaction->currency->recipient_currency) * 100
-                                        : 0;
-                                    $color = $profitPercentage < 0 ? 'red' : 'green';
-                                @endphp
-                                <span class="profit-loss-percentage" style="color: {{ $color }};">
-                                    {{ number_format($profitPercentage, 2) }} %
-                                </span>
-                            </td>
+                            <td>{{ $DataCurrencies->bank_amount }}</td>
+                            <td>{{ $DataCurrencies->amount }}</td>
+                            <td>{{ $DataCurrencies->currency }}</td>
+                            <td>{{ $DataCurrencies->MRU }}</td>
+                            <td>{{ $DataCurrencies->recipient_currency }}</td>
+                            <td>{{ $DataCurrencies->recipient_amount }}</td>
+                            <td>{{ $DataCurrencies->bank_recipient_amount }}</td>
+                            @php
+                            $ByPercent = floor(100 - ($DataCurrencies->MRU / $DataCurrencies->recipient_amount) * 100);
+                            $ByNum = $DataCurrencies->recipient_amount - $DataCurrencies->MRU;
+                        @endphp
+
+                        <td
+                            style="color: {{ $ByNum < 0 ? 'red' : 'green' }}">
+                            {{ $ByNum }}
+                        </td>
+                        <td
+                            style="color: {{ $ByPercent < 0 ? 'red' : 'green' }}">
+                            {{ $ByPercent }}%
+                        </td>
+
+
                         </tr>
-                    @endforeach
                 </tbody>
             </table>
         </div>

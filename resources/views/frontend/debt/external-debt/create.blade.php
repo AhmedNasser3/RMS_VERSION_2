@@ -1,5 +1,4 @@
 @extends('frontend.master')
-
 @section('content')
 <div class="form-wrapper_container">
     <div class="form-wrapper">

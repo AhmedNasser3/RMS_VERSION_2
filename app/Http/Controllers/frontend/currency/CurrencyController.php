@@ -33,51 +33,50 @@ class CurrencyController extends Controller
             'category_id' => 'required|exists:categories,id',
             'name' => 'required|string|max:255',
             'currency' => 'required|string|max:255',
-            'amount' => 'required|numeric',
-            'manual_exchange_rate' => 'nullable|numeric',
-            'recipient_amount' => 'nullable|numeric',
-            'recipient_currency' => 'nullable|numeric',
+            'amount' => 'required', // المبلغ المدخل
+            'manual_exchange_rate' => 'nullable',
+            'recipient_amount' => 'nullable',
+            'recipient_currency' => 'nullable|string|max:255',
             'MRU' => 'nullable|string|max:255',
+            'bank_amount' => 'required', // إضافة bank_amount كحقل مطلوب
+            'bank_recipient_amount' => 'nullable', // إضافة bank_recipient_amount
         ]);
 
         $user = auth()->user(); // جلب المستخدم الحالي
-        $userCurrency = $user->currency; // العملة الخاصة بالمستخدم
 
-        // تحقق من وجود سعر الصرف اليدوي أو استخدم سعر الصرف من الـ API
-        $exchangeRate = $data['manual_exchange_rate'] ?? $this->getConversionRate($userCurrency, $data['currency']);
-
-        // حساب المبلغ المحول باستخدام السعر المختار
-        $convertedAmount = $this->convertCurrencyAmount($data['currency'], $userCurrency, $data['amount'], $data['manual_exchange_rate'] ?? null);
-
-        // تحقق من توفر الكاش بعد التحويل
-        if ($convertedAmount > $user->cash) {
+        // التحقق من توفر الكاش بناءً على المبلغ المُدخل
+        if ($data['amount'] > $user->cash) {
             return back()->withErrors(['amount' => 'Insufficient cash to create this currency.']);
         }
 
-        // خصم المبلغ من الكاش بناءً على سعر الصرف
-        $user->cash -= $convertedAmount;
+        // خصم المبلغ مباشرةً من كاش المستخدم
+        $user->cash -= $data['amount'];
         $user->save();
 
-        // إضافة المبلغ المحول إلى العملة الجديدة في قاعدة البيانات
+        // إعداد بيانات الحقول الجديدة
         $data['user_id'] = $user->id;
-        $data['recipient_currency'] = $convertedAmount; // تخزين القيمة المحوّلة
+        $data['recipient_currency'] = $data['recipient_currency'] ?? $user->currency; // تحديد العملة المستلمة
+        $data['recipient_amount'] = $data['recipient_amount']; // تخزين القيمة المدخلة مباشرةً
+        $data['bank_recipient_amount'] = $data['bank_recipient_amount']; // حساب bank_recipient_amount باستخدام السعر اليدوي أو الافتراضي
 
         $currency = Currency::create($data);
 
-        // إضافة معاملة جديدة لتخزين العملية
+        // إضافة معاملة جديدة لتسجيل العملية
         Transaction::create([
             'user_id' => $user->id,
             'currency_id' => $currency->id,
-            'from_currency' => $userCurrency, // العملة الخاصة بالمستخدم
+            'from_currency' => $user->currency, // العملة الخاصة بالمستخدم
             'to_currency' => $data['currency'], // العملة الجديدة
-            'amount_from' => 0, // المبلغ من العملة القديمة (ليس هناك مبلغ قديم في حالة الإنشاء)
-            'amount_to' => $data['amount'], // المبلغ الجديد
-            'conversion_rate' => $exchangeRate, // استخدام السعر المختار
+            'amount_from' => $data['amount'], // المبلغ المدخل
+            'amount_to' => $data['recipient_amount'], // المبلغ الجديد
+            'conversion_rate' => $data['manual_exchange_rate'] ?? 1, // السعر اليدوي أو الافتراضي
             'transaction_date' => now(),
         ]);
+        $currency = Currency::create($data);
 
         return redirect()->route('home.page')->with('success', 'Currency created and transaction recorded!');
     }
+
 
 
 
@@ -96,8 +95,9 @@ public function edit($currencyId)
 
     // الحصول على أسعار العملات
     $currencies = $data['conversion_rates'];
+    $DataCurrencies = Currency::findOrFail($currencyId);
 
-    return view('frontend.currency.edit', compact('currency', 'categories', 'currencies', 'transactions'));
+    return view('frontend.currency.edit', compact('currency','DataCurrencies', 'categories', 'currencies', 'transactions'));
 }
 
     private function getConversionRate($fromCurrency, $toCurrency)
@@ -141,7 +141,7 @@ public function update(Request $request, $currencyId)
         'category_id' => 'required|exists:categories,id',
         'name' => 'required|string|max:255',
         'currency' => 'required|string|max:255',
-        'amount' => 'required|numeric',
+        'amount' => 'required',
     ]);
 
     $user = auth()->user();

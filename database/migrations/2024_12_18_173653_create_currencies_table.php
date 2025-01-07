@@ -18,9 +18,11 @@ return new class extends Migration
             $table->string('name');
             $table->string('currency');
             $table->float('amount', 12, 2);
-            $table->string('MRU')->nullable();
+            $table->string('bank_amount')->nullable();
             $table->string('recipient_currency')->nullable();
             $table->float('recipient_amount', 12, 2)->nullable();
+            $table->string('bank_recipient_amount', 12, 2)->nullable();
+            $table->string('MRU')->nullable();
             $table->timestamps();
         });
     }
